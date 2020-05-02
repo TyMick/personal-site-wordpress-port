@@ -12,48 +12,78 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 
-	<?php wp_head(); ?>
-</head>
+		<!-- Font Awesome and Google Fonts -->
+		<script src="https://kit.fontawesome.com/7f1bac7050.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans|Dawning+of+a+New+Day&display=swap" rel="stylesheet" >
 
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'ty-mick' ); ?></a>
+		<?php wp_head(); ?>
+	</head>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	<body <?php body_class(); ?>>
+		<?php wp_body_open(); ?>
+
+		<header class="container px-0 mb-4 mb-md-5">
+			<!-- Navbar -->
+			<nav class="navbar navbar-expand-md navbar-light">
+				<!-- Profile pic and name -->
+				<a href="<?= esc_url(home_url("/")); ?>" class="signature navbar-brand">
+					<?php
+					$name = get_bloginfo("name");
+					
+					// Add profile pic unless on front page
+					if (has_custom_logo() && !(is_front_page() || is_home())) {
+						$profile_pic_id = get_theme_mod("custom_logo");
+						$profile_pic_url = wp_get_attachment_image_url($profile_pic_id, "full");
+						echo '<img src="' . esc_url($profile_pic_url) . '" alt="A picture of ' . esc_html($name) . '" class="rounded-circle">';
+					}
+					echo $name;
+					?>
+				</a>
+
+				<!-- Navbar toggle button -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- Nav links -->
 				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$ty_mick_description = get_bloginfo( 'description', 'display' );
-			if ( $ty_mick_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $ty_mick_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+				// Get WP's html of nav menu
+				$nav_menu = wp_nav_menu([
+					"theme_location" => "menu-1",
+					"container_class" => "collapse navbar-collapse justify-content-end",
+					"container_id" => "nav-links",
+					"menu_class" => "navbar-nav align-items-end align-items-md-center",
+					"echo" => false
+				]);
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ty-mick' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+				// Add necessary Bootstrap classes
+				$patterns = [
+					'/([" ]menu-item)([ "])/',
+					'/([" ]current-menu-item)([ "])/',
+					'/<a href/'
+				];
+				$replacements = [
+					'$1 nav-item$2',
+					'$1 active$2',
+					'<a class="nav-link" href'
+				];
+				$nav_menu = preg_replace($patterns, $replacements, $nav_menu);
+
+				// Replace GitHub text with icon
+				$patterns = [
+					'/class="([^"]*)" href="https:\/\/github.com\/([^"]*)">([^<]*)/'
+				];
+				$replacements = [
+					'class="$1 github-nav-link" href="https://github.com/$2"><i class="fab fa-github" title="$3"></i>'
+				];
+				$nav_menu = preg_replace($patterns, $replacements, $nav_menu);
+
+				// Echo altered html
+				echo $nav_menu;
+				?>
+			</nav>
+		</header>

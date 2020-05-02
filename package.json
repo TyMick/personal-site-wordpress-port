@@ -20,6 +20,7 @@
     "@wordpress/scripts": "^9.0.0",
     "archiver": "^4.0.1",
     "node-sass": "^4.14.0",
+    "prettier": "^2.0.5",
     "rtlcss": "^2.5.0"
   },
   "rtlcssConfig": {
@@ -36,10 +37,13 @@
     "map": false
   },
   "scripts": {
-    "compile:css": "node-sass sass/style.scss style.css && node-sass sass/woocommerce.scss woocommerce.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:css": "node-sass --include-path node_modules sass/style.scss style.css",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
     "bundle": "node bin/bundle.js"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1"
   }
 }
