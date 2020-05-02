@@ -4946,7 +4946,7 @@ button.bg-dark:focus {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex {
+.d-flex, body {
   display: flex !important; }
 
 .d-inline-flex {
@@ -5089,7 +5089,7 @@ button.bg-dark:focus {
 .flex-row {
   flex-direction: row !important; }
 
-.flex-column {
+.flex-column, body {
   flex-direction: column !important; }
 
 .flex-row-reverse {
@@ -7230,6 +7230,11 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+body {
+  position: absolute;
+  min-height: 100%;
+  width: 100%; }
+
 .signature {
   font-family: "Dawning of a New Day", cursive;
   font-size: 2.3rem; }
@@ -7321,10 +7326,3 @@ h1, .h1 {
 .tooltip-inner {
   text-align: left;
   max-width: 98vw; }
-
-.fas,
-.far,
-.fal,
-.fad,
-.fab {
-  font-size: 0.88em; }
