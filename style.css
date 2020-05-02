@@ -380,12 +380,12 @@ h6, .h6 {
     .display-2 {
       font-size: calc(1.675rem + 5.1vw) ; } }
 
-.display-3 {
+.display-3, .greeting {
   font-size: 4.5rem;
   font-weight: 300;
   line-height: 1.2; }
   @media (max-width: 1200px) {
-    .display-3 {
+    .display-3, .greeting {
       font-size: calc(1.575rem + 3.9vw) ; } }
 
 .display-4 {
@@ -5518,7 +5518,7 @@ button.bg-dark:focus {
 .position-static {
   position: static !important; }
 
-.position-relative {
+.position-relative, .essay-preview {
   position: relative !important; }
 
 .position-absolute {
@@ -5629,7 +5629,7 @@ button.bg-dark:focus {
 .vh-100 {
   height: 100vh !important; }
 
-.stretched-link::after {
+.stretched-link::after, .essay-preview h2 a::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -5708,7 +5708,8 @@ button.bg-dark:focus {
 .mx-3 {
   margin-right: 1rem !important; }
 
-.mb-3,
+.mb-3, h1,
+.h1,
 .my-3 {
   margin-bottom: 1rem !important; }
 
@@ -5746,7 +5747,7 @@ button.bg-dark:focus {
 .mx-5 {
   margin-right: 3rem !important; }
 
-.mb-5,
+.mb-5, .essay-preview:not(:last-child),
 .my-5 {
   margin-bottom: 3rem !important; }
 
@@ -7001,7 +7002,8 @@ button.bg-dark:focus {
 .text-monospace {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
 
-.text-justify {
+.text-justify, p,
+li {
   text-align: justify !important; }
 
 .text-wrap {
@@ -7080,7 +7082,7 @@ button.bg-dark:focus {
 .font-weight-bolder {
   font-weight: bolder !important; }
 
-.font-italic {
+.font-italic, .essay-preview small {
   font-style: italic !important; }
 
 .text-white {
@@ -7092,10 +7094,10 @@ button.bg-dark:focus {
 a.text-primary:hover, a.text-primary:focus {
   color: #0056b3 !important; }
 
-.text-secondary {
+.text-secondary, .github-text-link {
   color: #6c757d !important; }
 
-a.text-secondary:hover, a.text-secondary:focus {
+a.text-secondary:hover, a.github-text-link:hover, a.text-secondary:focus, a.github-text-link:focus {
   color: #494f54 !important; }
 
 .text-success {
@@ -7137,7 +7139,8 @@ a.text-dark:hover, a.text-dark:focus {
 .text-body {
   color: #212529 !important; }
 
-.text-muted {
+.text-muted, .essay-preview h3,
+.essay-preview p {
   color: #6c757d !important; }
 
 .text-black-50 {
@@ -7160,7 +7163,7 @@ a.text-dark:hover, a.text-dark:focus {
   word-break: break-word !important;
   overflow-wrap: break-word !important; }
 
-.text-reset {
+.text-reset, .essay-preview h2 a {
   color: inherit !important; }
 
 .visible {
@@ -7244,3 +7247,84 @@ a.text-dark:hover, a.text-dark:focus {
 
 a.github-nav-link:hover, a.github-nav-link:focus {
   color: #333 !important; }
+
+.greeting {
+  font-family: "Alegreya", serif; }
+
+@media (min-width: 992px) {
+  .cap-lg-49 {
+    max-width: 49rem; } }
+
+.serif {
+  font-family: "Alegreya Sans", serif; }
+
+.sans-serif {
+  font-family: "Alegreya Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.github-link {
+  color: #595959; }
+  .github-link:hover, .github-link:focus {
+    color: #333 !important; }
+
+.github-text-link:hover, .github-text-link:focus {
+  color: #333 !important; }
+
+.twitter-link {
+  color: #1da1f2; }
+  .twitter-link:hover, .twitter-link:focus {
+    color: #0b76b8 !important; }
+
+.linkedin-link {
+  color: #4f8dd7; }
+  .linkedin-link:hover, .linkedin-link:focus {
+    color: #2867b2 !important; }
+
+.facebook-link {
+  color: #5f7ec1; }
+  .facebook-link:hover, .facebook-link:focus {
+    color: #3b5998 !important; }
+
+.instagram-link {
+  color: #e1306c; }
+  .instagram-link:hover, .instagram-link:focus {
+    color: #ac194b !important; }
+
+@media (min-width: 576px) {
+  .cap-width-sm {
+    max-width: 540px; } }
+
+@media (min-width: 768px) {
+  .cap-width-md {
+    max-width: 720px; } }
+
+@media (min-width: 992px) {
+  .cap-width-lg {
+    max-width: 960px; } }
+
+@media (min-width: 1200px) {
+  .cap-width-xl {
+    max-width: 1140px; } }
+
+h1, .h1 {
+  font-family: "Alegreya", serif; }
+
+.tooltip-inner {
+  text-align: left;
+  max-width: 98vw; }
+
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+  font-size: 0.88em; }

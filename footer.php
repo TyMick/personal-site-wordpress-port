@@ -10,22 +10,15 @@
  */
 
 ?>
-
-		<footer id="colophon" class="site-footer">
-			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ty-mick' ) ); ?>">
-					<?php
-					/* translators: %s: CMS name, i.e. WordPress. */
-					printf( esc_html__( 'Proudly powered by %s', 'ty-mick' ), 'WordPress' );
-					?>
-				</a>
-				<span class="sep"> | </span>
-					<?php
-					/* translators: 1: Theme name, 2: Theme author. */
-					printf( esc_html__( 'Theme: %1$s by %2$s.', 'ty-mick' ), 'ty-mick', '<a href="https://tymick.me">Ty Mick</a>' );
-					?>
-			</div><!-- .site-info -->
-		</footer><!-- #colophon -->
+		<footer class="container-fluid text-center mt-auto mb-3">
+			<a rel="license" href="http://creativecommons.org/license/by/4.0/" title="Creative Commons Attribution 4.0 International License" class="text-reset text-decoration-none">
+				<i class="fab fa-creative-commons"></i>&#x0200A;<i class="fab fa-creative-commons-by"></i>
+			</a>
+			2020
+			<a xmlns:cc="http://creativecommons.org/ns#" href="<?= esc_url(home_url("/")); ?>" property="cc:attributionName" rel="cc:attributionURL" class="text-reset text-decoration-none">
+				<?php bloginfo("name"); ?>
+			</a>
+		</footer>
 
 		<?php wp_footer(); ?>
 
