@@ -157,6 +157,19 @@ li:last-child.nav-item {
   }
 }
 
+// Testimonials styles
+blockquote.wp-block-quote {
+  @extend .blockquote;
+  @extend .mb-5;
+  p {
+    @extend .mb-0;
+  }
+  cite {
+    @extend .blockquote-footer;
+    font-style: unset;
+  }
+}
+
 // Miscellaneous
 p,
 li {

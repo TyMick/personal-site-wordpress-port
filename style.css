@@ -429,18 +429,18 @@ mark,
   font-size: 90%;
   text-transform: uppercase; }
 
-.blockquote {
+.blockquote, blockquote.wp-block-quote {
   margin-bottom: 1rem;
   font-size: 1.4375rem; }
   @media (max-width: 1200px) {
-    .blockquote {
+    .blockquote, blockquote.wp-block-quote {
       font-size: calc(1.26875rem + 0.225vw) ; } }
 
-.blockquote-footer {
+.blockquote-footer, blockquote.wp-block-quote cite {
   display: block;
   font-size: 80%;
   color: #6c757d; }
-  .blockquote-footer::before {
+  .blockquote-footer::before, blockquote.wp-block-quote cite::before {
     content: "\2014\00A0"; }
 
 .img-fluid {
@@ -5651,7 +5651,7 @@ button.bg-dark:focus {
 .mx-0 {
   margin-right: 0 !important; }
 
-.mb-0,
+.mb-0, blockquote.wp-block-quote p,
 .my-0 {
   margin-bottom: 0 !important; }
 
@@ -5747,7 +5747,7 @@ button.bg-dark:focus {
 .mx-5 {
   margin-right: 3rem !important; }
 
-.mb-5, .essay-preview:not(:last-child),
+.mb-5, .essay-preview:not(:last-child), blockquote.wp-block-quote,
 .my-5 {
   margin-bottom: 3rem !important; }
 
@@ -7319,6 +7319,9 @@ a.github-nav-link:hover, a.github-nav-link:focus {
 @media (min-width: 1200px) {
   .cap-width-xl {
     max-width: 1140px; } }
+
+blockquote.wp-block-quote cite {
+  font-style: unset; }
 
 h1, .h1 {
   font-family: "Alegreya", serif; }
