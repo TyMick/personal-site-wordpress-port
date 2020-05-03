@@ -17,11 +17,13 @@ get_header();
 
 <main class="container cap-width-lg mb-5">
 	<?php
-	while ( have_posts() ) :
+    while (have_posts()) {
 		the_post();
+		
+		the_title("<h1>", "</h1>");
 
-		get_template_part( 'template-parts/content', 'page' );
-	endwhile;
+        the_content();
+    }
 	?>
 </main>
 
