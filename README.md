@@ -6,5 +6,5 @@ This project involved a lot of PHP for the template files, used Sass for stylesh
 
 Thanks for checking this out, and [let me know](https://ty-mick-wordpress-port.000webhostapp.com/connect) if you have any questions!
 
-Sincerely,
+Sincerely,<br />
 [Ty](https://tymick.me)
