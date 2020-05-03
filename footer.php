@@ -1,15 +1,9 @@
 <?php
 /**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Ty_Mick
+ * Creative Commons license footer and Bootstrap-related scripts
  */
-
 ?>
+
 		<footer class="container-fluid text-center mt-auto mb-3">
 			<a rel="license" href="http://creativecommons.org/license/by/4.0/" title="Creative Commons Attribution 4.0 International License" class="text-reset text-decoration-none">
 				<i class="fab fa-creative-commons"></i>&#x0200A;<i class="fab fa-creative-commons-by"></i>

@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+/**
+ * Theme bundling script from _s (https://underscores.me)
+ */
+
 const path = require( 'path' );
 const fs = require( 'fs' );
 const archiver = require('archiver');
