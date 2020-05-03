@@ -10,30 +10,12 @@
     "url": "git+https://github.com/tywmick/personal-site-wordpress-port.git"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^9.0.0",
     "archiver": "^4.0.1",
     "node-sass": "^4.14.0",
-    "prettier": "^2.0.5",
-    "rtlcss": "^2.5.0"
-  },
-  "rtlcssConfig": {
-    "options": {
-      "autoRename": false,
-      "autoRenameStrict": false,
-      "blacklist": {},
-      "clean": true,
-      "greedy": false,
-      "processUrls": false,
-      "stringMap": []
-    },
-    "plugins": [],
-    "map": false
+    "prettier": "^2.0.5"
   },
   "scripts": {
     "compile:css": "node-sass --include-path node_modules sass/style.scss style.css",
-    "compile:rtl": "rtlcss style.css style-rtl.css",
-    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'js/*.js'",
     "bundle": "node bin/bundle.js"
   },
   "dependencies": {
