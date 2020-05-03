@@ -10,31 +10,30 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
+<main class="container cap-width-lg mb-5">
+	<article aria-labelledby="article-title">
 		<?php
-		while ( have_posts() ) :
+		while (have_posts()) {
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			// Title
+			the_title('<h1 id="article-title">', '</h1>');
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'ty-mick' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'ty-mick' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+			// Subtitle
+			do_action('plugins/wp_subtitle/the_subtitle', [
+				'before' => '<h2 class="h3 text-secondary">',
+				'after' => '</h2>'
+			]);
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			// Date
+			echo '<div class="font-italic text-secondary mb-4">' . get_the_time('F j, Y') . '</div>';
 
-		endwhile; // End of the loop.
+			// Content
+			the_content();
+		}
 		?>
-
-	</main><!-- #main -->
+	</article>
+</main>
 
 <?php
-get_sidebar();
 get_footer();

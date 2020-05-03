@@ -109,6 +109,33 @@ li:last-child.nav-item {
   padding-left: $grid-gutter-width / 2;
   padding-right: $grid-gutter-width / 2;
 }
+.wp-block-image {
+  @extend .figure;
+  @extend .mt-2;
+  @extend .mb-4;
+  img {
+    @extend .d-block;
+    @extend .mx-auto;
+    @extend .figure-img;
+    @extend .img-fluid;
+  }
+  figcaption {
+    @extend .figure-caption;
+    @extend .text-center;
+    @extend .mb-0;
+    a {
+      @extend .text-secondary;
+    }
+  }
+}
+.alignfull {
+  @extend .full-width;
+}
+.wp-block-separator {
+  @extend .border-secondary;
+  @extend .my-4;
+  width: 5rem;
+}
 
 // Brand-colored links (mostly on /connect)
 .github-link {
@@ -157,16 +184,33 @@ li:last-child.nav-item {
   }
 }
 
-// Testimonials styles
-blockquote.wp-block-quote {
+// Blockquote (and testimonial) styles
+.wp-block-quote {
   @extend .blockquote;
-  @extend .mb-5;
-  p {
-    @extend .mb-0;
-  }
   cite {
     @extend .blockquote-footer;
     font-style: unset;
+  }
+
+  &:not(.testimonial) {
+    border-left: 0.25em solid $secondary;
+    padding-left: 0.5em;
+  }
+
+  &.testimonial {
+    @extend .mb-5;
+    p {
+      @extend .mb-0;
+    }
+  }
+}
+
+// Fix Modern Footnotes styles
+.modern-footnotes-footnote__note {
+  text-align: left;
+  a {
+    display: unset;
+    white-space: inherit;
   }
 }
 
