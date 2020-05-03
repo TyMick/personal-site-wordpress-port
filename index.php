@@ -15,43 +15,46 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main class="container cap-width-lg mb-5">
+	<?php
+    if (is_home() && !is_front_page()) {
+		// Blog page title
+		echo single_post_title('<h1 class="mb-4 mb-md-5">', false) . '</h1>';
+	}
+	?>
 
+	<ul class="list-unstyled">
 		<?php
-		if ( have_posts() ) :
+		// Loop through blog posts
+		while (have_posts()) {
+			the_post();
+			?>
+			
+			<li class="essay-preview">
+				<!-- Title (with stretched link) -->
+				<h2 class="h5">
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</h2>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+				<!-- Subtitle -->
 				<?php
-			endif;
+				do_action('plugins/wp_subtitle/the_subtitle', [
+					'before' => '<h3 class="h6">',
+					'after' => '</h3'
+				]);
+				?>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+				<!-- Date -->
+				<small><?php the_time('F j, Y'); ?></small>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
+				<!-- Excerpt -->
+				<?php the_excerpt(); ?>
+			</li>
+		<?php
+		}
 		?>
-
-	</main><!-- #main -->
+	</ul>
+</main>
 
 <?php
-get_sidebar();
 get_footer();

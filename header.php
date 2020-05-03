@@ -35,7 +35,7 @@
 					$name = get_bloginfo("name");
 					
 					// Add profile pic unless on front page
-					if (has_custom_logo() && !(is_front_page() || is_home())) {
+					if (has_custom_logo() && !is_front_page()) {
 						$profile_pic_id = get_theme_mod("custom_logo");
 						$profile_pic_url = wp_get_attachment_image_url($profile_pic_id, "full");
 						echo '<img src="' . esc_url($profile_pic_url) . '" alt="A picture of ' . esc_html($name) . '" class="rounded-circle">';
