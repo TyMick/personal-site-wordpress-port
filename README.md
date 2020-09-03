@@ -1,3 +1,5 @@
+**Update: 000webhost seems to have conked out, so no live preview, sorry. Now that I've transitioned away from web development to data science, this project isn't important enough for me to move it to a different host right now.**
+
 This is a port of [my personal site](https://tymick.me) (a static site built with Next.js and React) to WordPress, my first attempt to acquaint myself with the WordPress ecosystem. Try opening up the original in a separate window and comparing the two side by side—I think the family resemblance is pretty good!
 
 I started by spinning up a new WordPress installation at [000webhost](https://www.000webhost.com), then recreated the content of each of my pages, blog posts, and menus in the WordPress dashboard, then forked Automattic’s [_s theme](https://underscores.me), recreated my site’s Bootstrap design as close as possible, and finally deleted everything from _s I didn’t end up needing to make the package as minimal as possible. Oh, and uploaded the final theme to this WordPress installation, and here we are looking it it today!
