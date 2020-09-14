@@ -4,7 +4,7 @@
   "description": "Theme for a project porting my personal site to WordPress",
   "author": "Ty Mick",
   "license": "GPL-2.0-or-later",
-  "homepage": "http://wordpress-port.tymick.me",
+  "homepage": "https://ty-mick-wordpress-port.000webhostapp.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tywmick/personal-site-wordpress-port.git"
